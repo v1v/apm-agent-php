@@ -21,6 +21,18 @@ endif::[]
 // Using the template above, release notes go here.
 // CHANGELOG_AUTOMATION_KEYWORD
 
+[[release-notes-v0.2]]
+==== v0.2 - 02/10/2020
+
+[float]
+===== Breaking changes
+* [DOCS] Add latest release badge{pull}197[#197]
+* [CI] test signed binaries and released binaries{pull}194[#194]
+
+[float]
+===== Features
+* docs: Link to docs from readme{pull}201[#201]
+
 [[release-notes-alpha]]
 === PHP Agent version alpha/preview
 
