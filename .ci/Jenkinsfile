@@ -429,11 +429,11 @@ def askAndWait(message) {
 }
 
 def notifyStatus(def args = [:]) {
-  slackSend(channel: env.SLACK_CHANNEL, color: args.slackStatus, message: "${args.subject}. ${args.body}",
-            tokenCredentialId: 'jenkins-slack-integration-token')
+  //slackSend(channel: env.SLACK_CHANNEL, color: args.slackStatus, message: "${args.subject}. ${args.body}",
+  //          tokenCredentialId: 'jenkins-slack-integration-token')
   // transform slack URL format '(<URL|description>)' to 'URL'.
-  def bodyEmail = args.body.replaceAll('\\(<', '').replaceAll('\\|.*>\\)', '')
-  emailext(subject: args.subject, to: "${env.NOTIFY_TO}", body: bodyEmail)
+  //def bodyEmail = args.body.replaceAll('\\(<', '').replaceAll('\\|.*>\\)', '')
+  //emailext(subject: args.subject, to: "${env.NOTIFY_TO}", body: bodyEmail)
 }
 
 def prepareRelease() {
@@ -444,7 +444,7 @@ def prepareRelease() {
   def actions = """### Actions
 * If changes are fine then:
   1. [Approve](${env.BUILD_URL}input) it. The pipeline will take care of the release.
-  1. Close this PR since it's not required anymore.
+  1. Close this PR since it is not required anymore.
   1. Delete branch ${branchName}.
 * If changes are not correct then:
   1. [abort](${env.BUILD_URL}input) it
