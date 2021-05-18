@@ -3,7 +3,7 @@
 @Library('apm@current') _
 
 pipeline {
-  agent { label 'linux && docker && ubuntu-18.04 && immutable' }
+  agent { label 'ubuntu-18.04 && immutable' }
   environment {
     REPO = 'apm-agent-php'
     BASE_DIR = "src/go.elastic.co/apm/${env.REPO}"
@@ -90,7 +90,7 @@ pipeline {
           }
           failFast false
           matrix {
-            agent { label 'linux && docker && ubuntu-18.04 && immutable' }
+            agent { label 'ubuntu-18.04 && immutable' }
             options { skipDefaultCheckout() }
             axes {
               axis {
@@ -189,7 +189,7 @@ pipeline {
           }
           failFast false
           matrix {
-            agent { label 'linux && docker && ubuntu-18.04 && immutable' }
+            agent { label 'ubuntu-18.04 && immutable' }
             options { skipDefaultCheckout() }
             axes {
               axis {
@@ -220,7 +220,7 @@ pipeline {
                 }
               }
               stage('PHP Upgrade Testing') {
-                agent { label 'linux && docker && ubuntu-18.04 && immutable' }
+                agent { label 'ubuntu-18.04 && immutable' }
                 when {
                   beforeAgent true
                   allOf {
@@ -240,7 +240,7 @@ pipeline {
                 }
               }
               stage('PHP Apache Testing') {
-                agent { label 'linux && docker && ubuntu-18.04 && immutable' }
+                agent { label 'ubuntu-18.04 && immutable' }
                 when {
                   beforeAgent true
                   allOf {
@@ -259,7 +259,7 @@ pipeline {
                 }
               }
               stage('PHP FPM Testing') {
-                agent { label 'linux && docker && ubuntu-18.04 && immutable' }
+                agent { label 'ubuntu-18.04 && immutable' }
                 when {
                   beforeAgent true
                   allOf {
@@ -295,7 +295,7 @@ pipeline {
           expression { isInternalCI() }
         }
       }
-      agent { label 'linux && docker && ubuntu-18.04 && immutable' }
+      agent { label 'ubuntu-18.04 && immutable' }
       environment {
         BUCKET_NAME = 'internal-ci-artifacts'
         BUCKET_SUBFOLDER = "${env.REPO}/${env.TAG_NAME}"
@@ -348,7 +348,7 @@ pipeline {
         stage('Test-Signed-Package') {
           failFast false
           matrix {
-            agent { label 'linux && docker && ubuntu-18.04 && immutable' }
+            agent { label 'ubuntu-18.04 && immutable' }
             options { skipDefaultCheckout() }
             axes {
               axis {
@@ -405,7 +405,7 @@ pipeline {
         stage('Test-Released-Package') {
           failFast false
           matrix {
-            agent { label 'linux && docker && ubuntu-18.04 && immutable' }
+            agent { label 'ubuntu-18.04 && immutable' }
             options { skipDefaultCheckout() }
             axes {
               axis {
